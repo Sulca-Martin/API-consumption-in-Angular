@@ -1,0 +1,20 @@
+<div *ngIf="persons.length">
+  <h1>List of people</h1>
+  <hr />
+  <div *ngFor="let person of persons; let i = index">
+    <button (click)="toggleDetails(i)">Person {{ i + 1 }}</button>
+    <div *ngIf="details[i]">
+      <strong>Full Name:</strong> {{ person.name.first }} {{ person.name.last }}
+      <br />
+      <strong>Email:</strong> {{ person.email }} <br />
+      <strong>Telf:</strong> {{ person.phone }} <br />
+      <strong>Adress:</strong> {{ person.location.city }},
+      {{ person.location.country }} <br />
+      <strong>Photo:</strong>
+      <img
+        [src]="person.picture.large"
+        alt="Photo of {{ person.name.first }}"
+      />
+    </div>
+  </div>
+</div>
